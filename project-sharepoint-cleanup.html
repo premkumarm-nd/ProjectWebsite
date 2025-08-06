@@ -3,141 +3,506 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SharePoint Site CleanUp Activity - PremKumar Portfolio</title>
-    <link rel="stylesheet" href="project-styles.css">
+    <title>SharePoint Storage Optimization Project - Final Summary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #1a202c;
+            background: #0f172a;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
+            padding: 60px 40px;
+            border-radius: 24px;
+            margin-bottom: 50px;
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6, #06b6d4);
+            opacity: 0.1;
+            animation: shimmer 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes shimmer {
+            0% { opacity: 0.05; }
+            100% { opacity: 0.15; }
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #f1f5f9;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.4rem;
+            color: #94a3b8;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+        
+        .section-content {
+            background: transparent;
+            padding: 0;
+        }
+
+        .report-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .project-card {
+            background: linear-gradient(145deg, #1e293b, #334155);
+            border-radius: 20px;
+            padding: 35px 40px;
+            box-shadow: 
+                0 20px 40px -10px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+            opacity: 0.8;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 30px 50px -15px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        
+        .project-description {
+            color: #cbd5e1;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .project-details {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .project-details strong {
+            color: #e2e8f0;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+        
+        .project-details ul, .project-details ol {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .project-details ul li, .project-details ol li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            color: #cbd5e1;
+            font-size: 1rem;
+        }
+
+        .project-details ul li::before {
+            content: "✓";
+            color: #10b981;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+            top: -2px;
+        }
+
+        .project-details ol {
+            counter-reset: item;
+        }
+        
+        .project-details ol > li {
+            counter-increment: item;
+        }
+
+        .project-details ol > li::before {
+            content: counter(item);
+            color: #f1f5f9;
+            background: #3b82f6;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-block;
+            text-align: center;
+            line-height: 24px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .project-details ol li strong {
+            color: #f1f5f9;
+            font-size: 1.05rem;
+            display: inline;
+            margin-bottom: 0;
+        }
+        
+        .project-details ol li p {
+            margin-top: 8px;
+            color: #94a3b8;
+        }
+
+        .project-details ol li ul {
+            margin-top: 15px;
+        }
+        .project-details ol li ul li::before {
+            content: "→";
+            color: #3b82f6;
+            width: auto;
+            height: auto;
+            background: none;
+            border-radius: 0;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+            top: -2px;
+        }
+
+        .tools {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .tool-tag {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+            color: #93c5fd;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .tool-tag:hover {
+            transform: translateY(-2px);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dynamic-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .dynamic-table th,
+        .dynamic-table td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dynamic-table th {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: #f1f5f9;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .dynamic-table td {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+        
+        .dynamic-table td:first-child {
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+
+        .dynamic-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .dynamic-table tr:hover {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 10px;
+            }
+            .header {
+                padding: 40px 20px;
+            }
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            .project-card {
+                padding: 25px;
+            }
+            .project-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #3b82f6, #8b5cf6); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: linear-gradient(135deg, #2563eb, #7c3aed); }
+    </style>
 </head>
 <body>
     <div class="container">
-        <div class="back-nav">
-            <a href="index.html" class="back-btn">← Back to Portfolio</a>
-        </div>
+        <header class="header">
+            <h1>Microsoft SharePoint Storage Optimization Project</h1>
+            <div class="subtitle">Final Summary Report</div>
+        </header>
 
-        <div class="project-header">
-            <div class="status-badge">In-Progress</div>
-            <div class="project-category">SharePoint Management</div>
-            <h1 class="project-title">SharePoint Site CleanUp Activity</h1>
-            <p class="project-description">
-                Cleaning up old/unnecessary SharePoint sites to reduce storage consumption and improve system performance across the organization.
-            </p>
-        </div>
+        <section class="section">
+            <div class="section-content">
+                <div class="report-grid">
 
-        <div class="content-grid">
-            <div class="main-content">
-                <!-- Project Overview -->
-                <div class="content-card">
-                    <h2><span class="icon">🎯</span> Project Overview</h2>
-                    <p>[Add detailed project overview here - explain the background, why this project was initiated, and what problems it aims to solve]</p>
-                </div>
+                    <!-- Project Overview Card -->
+                    <div class="project-card" id="overview">
+                        <h2 class="project-title">Project Overview & Inventory</h2>
+                        <p class="project-description">
+                            In response to growing storage capacity concerns, we initiated a SharePoint Storage Optimization Project to proactively manage and sustain our environment. Our analysis revealed that we are currently using 14.4 TB of storage, with approximately 43% of SharePoint sites flagged for cleanup. The project’s goal was to reduce unnecessary storage usage, enhance performance, and avoid potential cost escalation.
+                        </p>
+                        <div class="table-container">
+                            <table class="dynamic-table">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">SharePoint Inventory Overview</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Total SharePoint Sites</td>
+                                        <td>429</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Teams-Integrated Sites</td>
+                                        <td>191</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Communication Sites</td>
+                                        <td>238</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Default Storage Limit (per site)</td>
+                                        <td>25 TB</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Retention Period (OneDrive & SharePoint)</td>
+                                        <td>7 years</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
-                <!-- Key Activities -->
-                <div class="content-card">
-                    <h2><span class="icon">✅</span> Key Activities</h2>
-                    <ul>
-                        <li>[Activity 1 - Add specific details about what was done]</li>
-                        <li>[Activity 2 - Include current status and progress]</li>
-                        <li>[Activity 3 - Mention any challenges faced]</li>
-                        <li>[Activity 4 - Add more activities as needed]</li>
-                    </ul>
-                </div>
+                    <!-- Work Summary Card -->
+                    <div class="project-card" id="summary">
+                        <h2 class="project-title">Work Summary and Key Activities Performed</h2>
+                        <p class="project-description">
+                            This has been a time-intensive and data-sensitive project, requiring significant effort and attention to detail. Below is a summary of the work completed as part of the SharePoint Storage Optimization Project, along with key findings and challenges encountered during the process.
+                        </p>
+                        <div class="project-details">
+                            <ol>
+                                <li>
+                                    <strong>Storage Usage Analysis Across SharePoint</strong>
+                                    <p>Collected and analysed detailed storage data across all SharePoint sites to identify high-usage areas, versioning impact, and overall consumption trends. This helped in understanding where optimization efforts would have the most impact. <a href="#" style="color: #60a5fa;">Click Here to view the SharePoint Site details.</a></p>
+                                </li>
+                                <li>
+                                    <strong>Standardized Site Storage Limits</strong>
+                                    <p>To prevent unchecked growth, we implemented a default storage limit of 2 TB for all SharePoint sites, switching from automatic to manual allocation. A PowerShell script was developed and executed to apply these limits to all existing sites, and storage alert notifications were enabled to notify site owners at 90% capacity.</p>
+                                </li>
+                                <li>
+                                    <strong>Custom Script for Detailed Reporting</strong>
+                                    <p>Created a PowerShell script to generate an in-depth storage report, including total site size, version history size, and Preservation Hold Library (PHL) size. This provided a granular view of what's consuming storage.</p>
+                                </li>
+                                <li>
+                                    <strong>Identification of Inactive Sites</strong>
+                                    <p>Compiled a list of sites consuming 0 MB of space. A plan was initiated to contact site owners for decommissioning. A SharePoint Site Life Cycle Management policy is planned to automatically archive sites inactive for over six months.</p>
+                                </li>
+                                <li>
+                                    <strong>Testing the Impact of Retention Policy</strong>
+                                    <p>By excluding a test site from the 7-year retention policy, we observed that the Preservation Hold Library (PHL) was automatically deleted, freeing up significant space. This confirmed the retention policy is responsible for retaining data, even if versioning is disabled. This also applies to user OneDrive accounts.</p>
+                                </li>
+                                <li>
+                                    <strong>Versioning Configuration Optimized</strong>
+                                    <p>To control storage, we switched from automatic (500 versions) to a manual limit. A custom PowerShell script was developed to set the version history limit below the UI's minimum of 100. Based on InfoSec guidance, we standardized the limit to 15 versions where the retention policy allowed.</p>
+                                </li>
+                                <li>
+                                    <strong>Alerts and Notifications Enabled</strong>
+                                    <p>Threshold-based storage alerts have been enabled, ensuring site owners are notified when their site approaches 90% of the assigned quota.</p>
+                                </li>
+                                <li>
+                                    <strong>SharePoint Tenant Level Storage Alert Automation Using n8n</strong>
+                                    <p>An automated alerting system using n8n was implemented to monitor tenant-level storage. When usage exceeds 90%, it sends a detailed email alert to IT, preventing service disruptions and increasing operational visibility.</p>
+                                </li>
+                                <li>
+                                    <strong>Recycle Bin Monitoring Implemented</strong>
+                                    <p>Included periodic review and cleanup of Recycle Bin contents (both first and second stages) to reclaim additional storage space.</p>
+                                </li>
+                                <li>
+                                    <strong>Unused File Cleanup</strong>
+                                    <p>Reports were generated to identify unused or large files not accessed in the last 12 months. Owners were advised for deletion or archival.</p>
+                                </li>
+                                <li>
+                                    <strong>Restricted Unmanaged Site Creation</strong>
+                                    <p>To avoid sprawl, self-service site creation was limited, and approvals were routed through IT for better governance.</p>
+                                </li>
+                                <li>
+                                    <strong>Audit and Logging for Storage Trends</strong>
+                                    <p>Enabled auditing to track site storage growth trends, supporting ongoing capacity planning and proactive actions.</p>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="tools">
+                            <span class="tool-tag">PowerShell</span>
+                            <span class="tool-tag">SharePoint Admin</span>
+                            <span class="tool-tag">n8n</span>
+                            <span class="tool-tag">Data Retention Policy</span>
+                            <span class="tool-tag">Automation</span>
+                            <span class="tool-tag">Storage Governance</span>
+                        </div>
+                    </div>
 
-                <!-- Technical Implementation -->
-                <div class="content-card">
-                    <h2><span class="icon">⚙️</span> Technical Implementation</h2>
-                    <h3>Approach</h3>
-                    <p>[Describe the technical approach taken for this project]</p>
-                    
-                    <h3>Scripts and Automation</h3>
-                    <p>[Detail any PowerShell scripts, automation tools, or custom solutions developed]</p>
-                    
-                    <h3>Challenges and Solutions</h3>
-                    <p>[Explain any technical challenges encountered and how they were resolved]</p>
-                </div>
+                    <!-- Challenges Card -->
+                    <div class="project-card" id="challenges">
+                        <h2 class="project-title">Challenges and Limitations</h2>
+                        <div class="project-details">
+                            <strong>Retention Policy Restrictions</strong>
+                            <ul>
+                                <li>Due to the mandatory 7-year retention policy, SharePoint does not allow purging of version history or Preservation Hold Library (PHL) content during the retention period.</li>
+                                <li>Even if versioning settings are changed at the site level, the policy overrides them, meaning old versions and deleted content are still retained.</li>
+                                <li>This restricts the ability to fully implement certain storage-saving measures and limits the effectiveness of versioning adjustments. Clearing this data could significantly optimize storage, but doing so is not permitted due to the organization's strict data retention compliance.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-                <!-- Results and Impact -->
-                <div class="content-card">
-                    <h2><span class="icon">📊</span> Results and Impact</h2>
-                    <p>[Add measurable results, performance improvements, cost savings, or other impacts]</p>
-                    
-                    <h3>Metrics</h3>
-                    <ul>
-                        <li>[Metric 1 - e.g., Storage reduced by X GB]</li>
-                        <li>[Metric 2 - e.g., Performance improved by X%]</li>
-                        <li>[Metric 3 - e.g., Cost savings of $X per month]</li>
-                    </ul>
+                    <!-- Outcome Card -->
+                    <div class="project-card" id="outcome">
+                        <h2 class="project-title">Outcome</h2>
+                        <p class="project-description">
+                            This initiative has helped optimize our SharePoint storage, reduce overhead, and bring governance into the content lifecycle. We will continue to monitor site usage and enforce best practices to maintain a healthy and sustainable SharePoint environment.
+                        </p>
+                    </div>
+
                 </div>
             </div>
+        </section>
 
-            <div class="sidebar">
-                <!-- Project Details -->
-                <div class="content-card">
-                    <h2><span class="icon">📋</span> Project Details</h2>
-                    
-                    <div class="detail-item">
-                        <div class="detail-label">Status</div>
-                        <div class="detail-value">In-Progress</div>
-                    </div>
-                    
-                    <div class="detail-item">
-                        <div class="detail-label">Duration</div>
-                        <div class="detail-value">[Add project timeline]</div>
-                    </div>
-                    
-                    <div class="detail-item">
-                        <div class="detail-label">Team Size</div>
-                        <div class="detail-value">[Add team information]</div>
-                    </div>
-                    
-                    <div class="detail-item">
-                        <div class="detail-label">Priority</div>
-                        <div class="detail-value">[High/Medium/Low]</div>
-                    </div>
-                </div>
-
-                <!-- Tools & Technologies -->
-                <div class="content-card">
-                    <h2><span class="icon">🛠️</span> Tools & Technologies</h2>
-                    <div class="tools-grid">
-                        <span class="tool-tag">PowerShell</span>
-                        <span class="tool-tag">SharePoint Admin</span>
-                        <span class="tool-tag">PnP PowerShell</span>
-                        <span class="tool-tag">[Add more tools]</span>
-                    </div>
-                </div>
-
-                <!-- Stakeholders -->
-                <div class="content-card">
-                    <h2><span class="icon">👥</span> Stakeholders</h2>
-                    <ul>
-                        <li>[Stakeholder 1 - Role]</li>
-                        <li>[Stakeholder 2 - Role]</li>
-                        <li>[Stakeholder 3 - Role]</li>
-                    </ul>
-                </div>
-
-                <!-- Next Steps -->
-                <div class="content-card">
-                    <h2><span class="icon">🚀</span> Next Steps</h2>
-                    <ul>
-                        <li>[Next step 1]</li>
-                        <li>[Next step 2]</li>
-                        <li>[Next step 3]</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Additional sections can be added here -->
-        <div class="placeholder-section">
-            <h3>Additional Content Sections</h3>
-            <p>You can add more sections here such as:</p>
-            <ul style="text-align: left; display: inline-block; margin-top: 20px;">
-                <li>Screenshots or diagrams</li>
-                <li>Before/after comparisons</li>
-                <li>Lessons learned</li>
-                <li>Future enhancements</li>
-                <li>Related projects</li>
-            </ul>
-        </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add intersection observer for animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.7s ease-out forwards';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            const cards = document.querySelectorAll('.project-card, .header');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(40px)';
+                observer.observe(card);
+            });
+
+            // Add CSS for fade in animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeInUp {
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
 </body>
 </html>
