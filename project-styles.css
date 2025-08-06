@@ -1,3 +1,14 @@
+/*
+    ========================================
+    Reusable Portfolio Theme Stylesheet
+    Version: 1.0
+    ========================================
+*/
+
+/* --- Google Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* --- General & Base Styles --- */
 * {
     margin: 0;
     padding: 0;
@@ -6,9 +17,9 @@
 
 body {
     font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.7;
-    color: #1a202c;
-    background: #0f172a;
+    line-height: 1.8;
+    color: #cbd5e1; /* Light gray text for readability on dark background */
+    background-color: #0f172a; /* Very dark blue - main background */
     min-height: 100vh;
 }
 
@@ -18,254 +29,195 @@ body {
     padding: 40px 20px;
 }
 
-.back-nav {
-    margin-bottom: 30px;
-}
-
-.back-btn {
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
-}
-
-.back-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 25px rgba(59, 130, 246, 0.4);
-    background: linear-gradient(135deg, #2563eb, #7c3aed);
-}
-
-.project-header {
+/* --- Header & Title --- */
+.header {
+    text-align: center;
     background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
-    padding: 50px 40px;
+    padding: 60px 40px;
     border-radius: 24px;
     margin-bottom: 40px;
-    box-shadow:
+    box-shadow: 
         0 25px 50px -12px rgba(0, 0, 0, 0.4),
         0 0 0 1px rgba(255, 255, 255, 0.05);
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-.project-header::before {
+.header::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, #3b82f6, #8b5cf6, #06b6d4);
-    opacity: 0.1;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1), transparent 70%);
+    animation: pulse 5s ease-in-out infinite;
 }
 
-.project-category {
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    display: inline-block;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 1;
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.1; }
+    50% { transform: scale(1.5); opacity: 0.15; }
+    100% { transform: scale(1); opacity: 0.1; }
 }
 
-.project-title {
-    font-size: 3rem;
+.header h1 {
+    font-size: 2.8rem;
     font-weight: 800;
-    color: #f1f5f9;
+    color: #f1f5f9; /* Bright white for high contrast */
     margin-bottom: 20px;
     position: relative;
     z-index: 1;
 }
 
-.project-description {
-    font-size: 1.3rem;
-    color: #cbd5e1;
-    line-height: 1.6;
-    position: relative;
-    z-index: 1;
+/* Decorative underline for the title */
+.header h1::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    border-radius: 2px;
+    margin: 25px auto 0;
 }
 
-.status-badge {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    padding: 12px 20px;
-    border-radius: 25px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    background: linear-gradient(135deg, #3b82f6, #2563eb);
-    color: white;
-    z-index: 1;
-}
-
-.content-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 40px;
-    margin-bottom: 40px;
-}
-
+/* --- Main Content Area --- */
 .main-content {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.content-card {
-    background: linear-gradient(145deg, #1e293b, #334155);
+    background: linear-gradient(145deg, #1e293b, #283548);
     border-radius: 20px;
-    padding: 30px;
-    box-shadow:
-        0 20px 40px -10px rgba(0, 0, 0, 0.3),
+    padding: 40px 50px;
+    box-shadow: 
+        0 20px 40px -10px rgba(0, 0, 0, 0.4),
         0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
-.content-card h2 {
-    color: #f1f5f9;
-    font-size: 1.5rem;
+/* --- Typography --- */
+h2 {
+    font-size: 1.8rem;
     font-weight: 700;
-    margin-bottom: 20px;
+    color: #f1f5f9;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #334155;
     display: flex;
     align-items: center;
-    gap: 10px;
 }
 
-.content-card h3 {
-    color: #f1f5f9;
-    font-size: 1.2rem;
+h2:first-of-type {
+    margin-top: 0;
+}
+
+/* Decorative icon before H2 titles */
+h2::before {
+    content: '❖';
+    margin-right: 15px;
+    font-size: 1.5rem;
+    color: #8b5cf6;
+}
+
+h3 {
+    font-size: 1.3rem;
     font-weight: 600;
+    color: #e2e8f0;
+    margin-top: 30px;
     margin-bottom: 15px;
 }
 
-.content-card p {
-    color: #cbd5e1;
-    line-height: 1.7;
-    margin-bottom: 15px;
+p, ul, ol {
+    margin-bottom: 20px;
+    font-size: 1rem;
 }
 
-.content-card ul {
-    list-style: none;
+ul, ol {
+    padding-left: 25px;
+}
+
+li {
+    margin-bottom: 15px;
+    padding-left: 10px;
+}
+
+strong {
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+ul > li::marker {
+    color: #3b82f6;
+    font-size: 1.2em;
+}
+
+a {
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+a:hover {
+    color: #93c5fd;
+    border-bottom-color: #93c5fd;
+}
+
+/* --- Code Blocks --- */
+pre {
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-left: 4px solid #3b82f6;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 25px 0;
+    overflow-x: auto;
+    white-space: pre-wrap; /* Allows text to wrap */
+    word-wrap: break-word;   /* Breaks long words if necessary */
+    font-family: 'Consolas', 'Menlo', 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: #e2e8f0;
+}
+
+pre code {
+    font-family: inherit;
+    color: inherit;
+    background: none;
     padding: 0;
 }
 
-.content-card li {
-    color: #cbd5e1;
-    margin-bottom: 12px;
-    padding-left: 25px;
-    position: relative;
-}
-
-.content-card li:before {
-    content: "→";
-    color: #3b82f6;
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.icon {
-    font-size: 1.5rem;
-}
-
-.detail-item {
-    margin-bottom: 20px;
-}
-
-.detail-label {
-    color: #94a3b8;
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 5px;
-}
-
-.detail-value {
-    color: #f1f5f9;
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-.tools-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.tool-tag {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
-    color: #93c5fd;
-    padding: 6px 12px;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    border: 1px solid rgba(59, 130, 246, 0.3);
-}
-
-.placeholder-section {
-    background: linear-gradient(145deg, #1e293b, #334155);
-    border: 2px dashed rgba(59, 130, 246, 0.3);
-    border-radius: 20px;
-    padding: 40px;
-    text-align: center;
-    color: #94a3b8;
-    font-style: italic;
-}
-
-@media (max-width: 1024px) {
-    .content-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .project-title {
-        font-size: 2.5rem;
-    }
-    
-    .status-badge {
-        position: static;
-        margin-bottom: 20px;
-        display: inline-block;
-    }
-}
-
+/* --- Responsive Design --- */
 @media (max-width: 768px) {
     .container {
-        padding: 20px 10px;
+        padding: 20px 15px;
     }
-    
-    .project-header {
-        padding: 30px 20px;
-    }
-    
-    .project-title {
+    .header h1 {
         font-size: 2rem;
     }
-    
-    .content-card {
-        padding: 20px;
+    .header h1::after {
+        width: 80px;
+        margin-top: 20px;
     }
+    .main-content {
+        padding: 30px 25px;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar { 
+    width: 10px; 
+}
+::-webkit-scrollbar-track { 
+    background: #1e293b; 
+}
+::-webkit-scrollbar-thumb { 
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6); 
+    border-radius: 5px; 
+}
+::-webkit-scrollbar-thumb:hover { 
+    background: linear-gradient(135deg, #2563eb, #7c3aed); 
 }
