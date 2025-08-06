@@ -3,176 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SharePoint Storage Optimization Project - Final Summary</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.8;
-            color: #cbd5e1;
-            background: #0f172a;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .header {
-            text-align: center;
-            background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
-            padding: 50px 40px;
-            border-radius: 24px;
-            margin-bottom: 40px;
-            box-shadow: 
-                0 25px 50px -12px rgba(0, 0, 0, 0.4),
-                0 0 0 1px rgba(255, 255, 255, 0.05);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, #3b82f6, #8b5cf6, #06b6d4);
-            opacity: 0.1;
-            animation: shimmer 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes shimmer {
-            0% { opacity: 0.05; }
-            100% { opacity: 0.15; }
-        }
-
-        .header h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: #f1f5f9;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .main-content {
-            background: linear-gradient(145deg, #1e293b, #334155);
-            border-radius: 20px;
-            padding: 40px 50px;
-            box-shadow: 
-                0 20px 40px -10px rgba(0, 0, 0, 0.4),
-                0 0 0 1px rgba(255, 255, 255, 0.05);
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #f1f5f9;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #334155;
-        }
-        
-        h2:first-of-type {
-            margin-top: 0;
-        }
-
-        h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #e2e8f0;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        p, ul, ol {
-            margin-bottom: 20px;
-            font-size: 1rem;
-        }
-
-        ul, ol {
-            padding-left: 25px;
-        }
-
-        li {
-            margin-bottom: 15px;
-        }
-        
-        strong {
-            color: #e2e8f0;
-            font-weight: 600;
-        }
-
-        ul > li::marker {
-            color: #3b82f6;
-            font-weight: bold;
-        }
-
-        a {
-            color: #60a5fa;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #93c5fd;
-            text-decoration: underline;
-        }
-        
-        /* Styles for the code block placeholder */
-        pre {
-            background-color: #0f172a;
-            border: 1px solid #334155;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-            overflow-x: auto;
-            white-space: pre-wrap; /* Allows wrapping */
-            word-wrap: break-word; /* Breaks long words */
-            font-family: 'Consolas', 'Menlo', 'Courier New', monospace;
-            font-size: 0.9rem;
-            color: #e2e8f0;
-        }
-        
-        pre code {
-            font-family: inherit;
-            color: inherit;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px 10px;
-            }
-            .header h1 {
-                font-size: 2rem;
-            }
-            .main-content {
-                padding: 30px 25px;
-            }
-        }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #1e293b; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #3b82f6, #8b5cf6); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: linear-gradient(135deg, #2563eb, #7c3aed); }
-
-    </style>
+    <title>SharePoint Storage Optimization Project – Final Summary</title>
+    
+    <!-- Link to your reusable stylesheet -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -210,11 +44,9 @@
                         <li>Storage alert notifications were enabled to automatically notify site owners when their site reaches 90% of the allocated limit, ensuring proactive management and timely action before the threshold is exceeded.</li>
                     </ul>
                     <pre><code><!-- Paste your PowerShell script for setting storage limits here -->
-# Example: Connect-PnPOnline -Url $adminUrl -Interactive
-# Get-PnPTenantSite | ForEach-Object {
-#    Set-PnPTenantSite -Url $_.Url -StorageQuota 2097152 -StorageQuotaWarningLevel 1887436
-# }
-# Script content goes here...</code></pre>
+# 
+# Script content goes here...
+# </code></pre>
                 </li>
                 <li>
                     <strong>Custom Script for Detailed Reporting</strong>
@@ -226,12 +58,9 @@
                     </ul>
                     <p>This provided a granular view of what's consuming storage and where potential optimizations could be applied.</p>
                      <pre><code><!-- Paste your PowerShell script for detailed reporting here -->
-# Example: 
-# $sites = Get-PnPTenantSite
-# foreach ($site in $sites) {
-#   # Logic to calculate and export size, version size, PHL size
-# }
-# Script content goes here...</code></pre>
+# 
+# Script content goes here...
+# </code></pre>
                 </li>
                 <li>
                     <strong>Identification of Inactive Sites</strong>
@@ -251,12 +80,9 @@
                     <strong>Versioning Configuration Optimized</strong>
                     <p>Initially, SharePoint sites were configured with the version history setting set to 'Automatic', which by default retained up to 500 versions of a document. To control storage usage, we switched from automatic to manual versioning and set the limit to 100 versions through the SharePoint UI. However, the UI restricts setting the limit below 100. To address this, a custom PowerShell script was developed that allows the version history limit to be set below 100 for any site. Based on InfoSec team guidance, the version history was standardized to retain a maximum of 15 versions. This setting was applied wherever applicable. However, due to the active retention policy with legal hold, we were unable to enforce this change in all environments. Documents under retention cannot have their version history or related metadata purged, limiting the full effectiveness of this adjustment. Despite this, the scripting mechanism is in place and ready for implementation wherever policy allows.</p>
                      <pre><code><!-- Paste your PowerShell script for versioning configuration here -->
-# Example:
-# $list = Get-PnPList -Identity "Documents"
-# $list.MajorVersionLimit = 15
-# $list.Update()
-# Invoke-PnPQuery
-# Script content goes here...</code></pre>
+# 
+# Script content goes here...
+# </code></pre>
                 </li>
                 <li>
                     <strong>Alerts and Notifications Enabled</strong>
