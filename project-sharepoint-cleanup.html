@@ -3,141 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SharePoint Site CleanUp Activity - PremKumar Portfolio</title>
-    <link rel="stylesheet" href="project-styles.css">
+    <title>SharePoint Storage Optimization Project - Final Summary</title>
+    <meta name="author" content="PremKumar">
+    <meta name="description" content="Final summary report for the Microsoft SharePoint Storage Optimization Project, detailing activities, outcomes, and challenges.">
+    
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Optional: Add a custom font like 'Inter' for a professional look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        // Custom Tailwind theme configuration to match your main page
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Small CSS additions for list styling */
+        .content-area ul { list-style-type: disc; }
+        .content-area ol { list-style-type: decimal; }
+        .content-area ul, .content-area ol { padding-left: 1.5rem; }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <div class="back-nav">
-            <a href="index.html" class="back-btn">← Back to Portfolio</a>
-        </div>
 
-        <div class="project-header">
-            <div class="status-badge">In-Progress</div>
-            <div class="project-category">SharePoint Management</div>
-            <h1 class="project-title">SharePoint Site CleanUp Activity</h1>
-            <p class="project-description">
-                Cleaning up old/unnecessary SharePoint sites to reduce storage consumption and improve system performance across the organization.
+<body class="bg-slate-900 font-sans text-slate-300 min-h-screen">
+
+    <div class="container max-w-4xl mx-auto px-5 py-12 md:py-20">
+
+        <!-- Header Section -->
+        <header class="text-center mb-16">
+            <div class="mb-8">
+                <a href="index.html" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    Back to All Projects
+                </a>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                Microsoft SharePoint Storage Optimization Project
+            </h1>
+            <p class="text-xl text-slate-400">Final Summary Report</p>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="content-area bg-slate-800/50 border border-slate-700 rounded-2xl p-8 md:p-12 shadow-2xl">
+            
+            <p class="text-lg leading-relaxed text-slate-300 mb-8">
+                In response to growing storage capacity concerns, we initiated a SharePoint Storage Optimization Project to proactively manage and sustain our environment. Our analysis revealed that we are currently using 14.4 TB of storage, with approximately 43% of SharePoint sites flagged for cleanup. The project’s goal was to reduce unnecessary storage usage, enhance performance, and avoid potential cost escalation.
             </p>
-        </div>
 
-        <div class="content-grid">
-            <div class="main-content">
-                <!-- Project Overview -->
-                <div class="content-card">
-                    <h2><span class="icon">🎯</span> Project Overview</h2>
-                    <p>[Add detailed project overview here - explain the background, why this project was initiated, and what problems it aims to solve]</p>
-                </div>
+            <section class="my-10">
+                <h2 class="text-2xl font-bold text-slate-100 mb-4 pb-3 border-b border-slate-600">SharePoint Inventory Overview</h2>
+                <ul class="space-y-2 text-slate-300">
+                    <li><strong>Total SharePoint Sites:</strong> 429</li>
+                    <li><strong>Teams-Integrated Sites:</strong> 191</li>
+                    <li><strong>Communication Sites:</strong> 238</li>
+                    <li><strong>Default Storage Limit:</strong> 25 TB per site</li>
+                    <li><strong>Retention Period:</strong> 7 years (OneDrive and SharePoint)</li>
+                </ul>
+            </section>
 
-                <!-- Key Activities -->
-                <div class="content-card">
-                    <h2><span class="icon">✅</span> Key Activities</h2>
-                    <ul>
-                        <li>[Activity 1 - Add specific details about what was done]</li>
-                        <li>[Activity 2 - Include current status and progress]</li>
-                        <li>[Activity 3 - Mention any challenges faced]</li>
-                        <li>[Activity 4 - Add more activities as needed]</li>
-                    </ul>
-                </div>
+            <section class="my-10">
+                <h2 class="text-2xl font-bold text-slate-100 mb-4 pb-3 border-b border-slate-600">Work Summary and Key Observations</h2>
+                <p class="text-slate-400 mb-6">
+                    I would like to share a summary of the work completed as part of the SharePoint Storage Optimization Project, along with key findings and challenges encountered during the process. This has been a time-intensive and data-sensitive project, requiring significant effort and attention to detail. Below are the key highlights and observations.
+                </p>
 
-                <!-- Technical Implementation -->
-                <div class="content-card">
-                    <h2><span class="icon">⚙️</span> Technical Implementation</h2>
-                    <h3>Approach</h3>
-                    <p>[Describe the technical approach taken for this project]</p>
-                    
-                    <h3>Scripts and Automation</h3>
-                    <p>[Detail any PowerShell scripts, automation tools, or custom solutions developed]</p>
-                    
-                    <h3>Challenges and Solutions</h3>
-                    <p>[Explain any technical challenges encountered and how they were resolved]</p>
-                </div>
+                <h3 class="text-xl font-semibold text-slate-200 mt-8 mb-4">Key Activities Performed</h3>
+                <ol class="space-y-6">
+                    <li>
+                        <strong>Storage Usage Analysis Across SharePoint</strong>
+                        <p class="text-slate-400 mt-1">Collected and analysed detailed storage data across all SharePoint sites to identify high-usage areas, versioning impact, and overall consumption trends. This helped in understanding where optimization efforts would have the most impact. <a href="#" class="text-blue-400 hover:underline">Click Here to view the SharePoint Site details.</a></p>
+                    </li>
+                    <li>
+                        <strong>Standardized Site Storage Limits</strong>
+                        <ul class="space-y-2 text-slate-400 mt-2">
+                            <li>By default, Microsoft allocates 25 TB of storage space when a new site is created. To address this, we modified the storage allocation method from automatic to manual. However, a key challenge was determining how to set manual storage limits for all sites efficiently and uniformly.</li>
+                            <li>Implemented a default storage limit of 2 TB for all SharePoint sites to prevent unchecked growth and promote better space management.</li>
+                            <li>PowerShell script was developed and executed to manually apply the storage limits to all existing SharePoint sites.</li>
+                            <li>Storage alert notifications were enabled to automatically notify site owners when their site reaches 90% of the allocated limit, ensuring proactive management and timely action before the threshold is exceeded.</li>
+                        </ul>
+                        <!-- SCRIPT SECTION -->
+                        <div class="my-4">
+                            <h4 class="text-md font-semibold text-slate-300 mb-2">PowerShell Script: Standardize Storage Limits</h4>
+                            <pre class="bg-slate-900 border-l-4 border-blue-500 p-4 rounded-md overflow-x-auto text-sm"><code><!-- Paste your PowerShell script for setting storage limits here -->
+#
+# Connect-PnPOnline -Url "your-admin-url" -Interactive
+# Get-PnPTenantSite | ForEach-Object {
+#    # Set Storage to 2TB (2097152 MB) and warning at 90%
+#    Set-PnPTenantSite -Url $_.Url -StorageQuota 2097152 -StorageQuotaWarningLevel 1887436
+#    Write-Host "Set storage limit for $($_.Url)"
+# }
+#
+                            </code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>Custom Script for Detailed Reporting</strong>
+                        <p class="text-slate-400 mt-1">Created a PowerShell script to generate an in-depth storage report. The script includes:</p>
+                        <ul class="text-slate-400 mt-2">
+                            <li>Total site size</li>
+                            <li>Version history size</li>
+                            <li>Preservation Hold Library (PHL) size</li>
+                        </ul>
+                        <p class="text-slate-400 mt-1">This provided a granular view of what's consuming storage and where potential optimizations could be applied.</p>
+                        <!-- SCRIPT SECTION -->
+                        <div class="my-4">
+                            <h4 class="text-md font-semibold text-slate-300 mb-2">PowerShell Script: Detailed Storage Report</h4>
+                            <pre class="bg-slate-900 border-l-4 border-blue-500 p-4 rounded-md overflow-x-auto text-sm"><code><!-- Paste your detailed reporting script here -->
+#
+# This script would iterate through sites, get storage metrics,
+# and export the results to a CSV file.
+#
+# $allSites = Get-PnPTenantSite
+# $report = @()
+# foreach ($site in $allSites) {
+#   # Logic to get total size, version size, PHL size...
+# }
+# $report | Export-Csv -Path "C:\temp\StorageReport.csv" -NoTypeInformation
+#
+                            </code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>Identification of Inactive Sites</strong>
+                        <p class="text-slate-400 mt-1">Compiled a list of sites that are no longer in use and currently consuming 0 MB of space. A plan was initiated to reach out to the site owners for confirmation, with the intent to decommission and delete these sites to recover unused resources. A SharePoint Site Life Cycle Management policy is being planned. According to this policy, inactive sites that have not been used for more than six months will be automatically moved to the archive.</p>
+                    </li>
+                    <li>
+                        <strong>Testing the Impact of Retention Policy</strong>
+                        <ul class="space-y-2 text-slate-400 mt-2">
+                            <li>Conducted a test by excluding a SharePoint test site from the 7-year retention policy.</li>
+                            <li>Observed that once the site was excluded, the Preservation Hold Library (PHL) was automatically deleted, freeing up significant storage space.</li>
+                            <li>This confirmed that the retention policy is directly responsible for retaining deleted and versioned data, even if versioning is disabled in the site settings.</li>
+                            <li>Additionally, while analysing user activity, it was discovered that many users’ OneDrive accounts also contain large amounts of data under PHL, contributing to storage bloat.</li>
+                            <li>Although clearing this data could significantly optimize storage, doing so is not permitted due to the organization's strict data retention compliance.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Versioning Configuration Optimized</strong>
+                        <p class="text-slate-400 mt-1">Initially, SharePoint sites were configured with the version history setting set to 'Automatic', which by default retained up to 500 versions of a document. To control storage usage, we switched from automatic to manual versioning and set the limit to 100 versions through the SharePoint UI. However, the UI restricts setting the limit below 100. To address this, a custom PowerShell script was developed that allows the version history limit to be set below 100 for any site. Based on InfoSec team guidance, the version history was standardized to retain a maximum of 15 versions. This setting was applied wherever applicable. However, due to the active retention policy with legal hold, we were unable to enforce this change in all environments. Documents under retention cannot have their version history or related metadata purged, limiting the full effectiveness of this adjustment. Despite this, the scripting mechanism is in place and ready for implementation wherever policy allows.</p>
+                        <!-- SCRIPT SECTION -->
+                        <div class="my-4">
+                            <h4 class="text-md font-semibold text-slate-300 mb-2">PowerShell Script: Set Versioning Limit</h4>
+                            <pre class="bg-slate-900 border-l-4 border-blue-500 p-4 rounded-md overflow-x-auto text-sm"><code><!-- Paste your versioning script here -->
+#
+# Connect-PnPOnline -Url $siteUrl -Interactive
+# $list = Get-PnPList -Identity "Documents"
+# $list.EnableVersioning = $true
+# $list.MajorVersionLimit = 15
+# $list.Update()
+# Invoke-PnPQuery
+#
+                            </code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>Alerts and Notifications Enabled</strong>
+                        <p class="text-slate-400 mt-1">Threshold-based storage alerts have been enabled, ensuring site owners are notified when their site approaches 90% of the assigned quota.</p>
+                    </li>
+                    <li>
+                        <strong>SharePoint Tenant Level Storage Alert Automation Using n8n</strong>
+                        <p class="text-slate-400 mt-1">Previously, there was no alerting mechanism in place for monitoring SharePoint tenant-level storage usage. As a result, when the storage approached its maximum limit, IT administrators were not notified in time, potentially leading to service disruptions. To address this, an automated alerting system has been implemented using n8n, an open-source workflow automation tool.</p>
+                        <p class="text-slate-400 mt-1">This n8n is locally Hosted in File Server in Server Room, and Daily Automation is scheduled, All the Logs are saved in IT SharePoint.</p>
+                        <div class="bg-slate-900/50 border border-slate-700 rounded-lg p-4 mt-4">
+                            <h4 class="font-semibold text-slate-200 mb-2">Key Features of the Automation:</h4>
+                            <ul class="space-y-2 text-slate-400">
+                                <li><strong>Automated Monitoring:</strong> The system continuously monitors the total SharePoint tenant storage, used storage, and remaining storage.</li>
+                                <li><strong>Threshold-Based Alerts:</strong> When the storage usage reaches or exceeds 90%, an automated email notification is sent to it@netradyne.com to prompt immediate action.</li>
+                                <li><strong>Daily Check Frequency:</strong> The workflow runs on a scheduled basis (e.g., daily) to ensure up-to-date usage statistics.</li>
+                                <li><strong>Detailed Usage Metrics:</strong> The alert email includes Date, Total storage, Used storage, Remaining storage, and Usage percentage.</li>
+                                <li><strong>Scalable & Maintainable:</strong> The automation can be updated easily to modify thresholds, recipients, or add new logging or integrations.</li>
+                            </ul>
+                            <h4 class="font-semibold text-slate-200 mt-4 mb-2">Benefits:</h4>
+                            <ul class="space-y-2 text-slate-400">
+                                <li>Prevents unexpected service interruptions due to full storage.</li>
+                                <li>Increases operational visibility and proactive management.</li>
+                                <li>Ensures accountability through automated notifications.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>Recycle Bin Monitoring Implemented</strong>
+                        <p class="text-slate-400 mt-1">Included periodic review and cleanup of Recycle Bin contents (both stages) to reclaim additional storage space.</p>
+                    </li>
+                    <li>
+                        <strong>Unused File Cleanup</strong>
+                        <p class="text-slate-400 mt-1">Reports were generated to identify unused or large files not accessed in the last 12 months. Owners were advised for deletion or archival.</p>
+                    </li>
+                    <li>
+                        <strong>Restricted Unmanaged Site Creation</strong>
+                        <p class="text-slate-400 mt-1">To avoid sprawl, self-service site creation was limited, and approvals were routed through IT for governance.</p>
+                    </li>
+                    <li>
+                        <strong>Audit and Logging for Storage Trends</strong>
+                        <p class="text-slate-400 mt-1">Enabled auditing to track site storage growth trends and support ongoing capacity planning and proactive actions.</p>
+                    </li>
+                </ol>
+            </section>
 
-                <!-- Results and Impact -->
-                <div class="content-card">
-                    <h2><span class="icon">📊</span> Results and Impact</h2>
-                    <p>[Add measurable results, performance improvements, cost savings, or other impacts]</p>
-                    
-                    <h3>Metrics</h3>
-                    <ul>
-                        <li>[Metric 1 - e.g., Storage reduced by X GB]</li>
-                        <li>[Metric 2 - e.g., Performance improved by X%]</li>
-                        <li>[Metric 3 - e.g., Cost savings of $X per month]</li>
-                    </ul>
-                </div>
-            </div>
+            <section class="my-10">
+                <h2 class="text-2xl font-bold text-slate-100 mb-4 pb-3 border-b border-slate-600">Challenges and Limitations</h2>
+                <h3 class="text-xl font-semibold text-slate-200 mt-6 mb-2">Retention Policy Restrictions</h3>
+                <ul class="space-y-2 text-slate-300">
+                    <li>Due to the mandatory 7-year retention policy, SharePoint does not allow purging of version history or PHL content during the retention period.</li>
+                    <li>Even if versioning settings are changed at the site level, the policy overrides them, meaning old versions and deleted content are still retained.</li>
+                    <li>This restricts the ability to fully implement certain storage-saving measures and limits the effectiveness of versioning adjustments.</li>
+                </ul>
+            </section>
 
-            <div class="sidebar">
-                <!-- Project Details -->
-                <div class="content-card">
-                    <h2><span class="icon">📋</span> Project Details</h2>
-                    
-                    <div class="detail-item">
-                        <div class="detail-label">Status</div>
-                        <div class="detail-value">In-Progress</div>
-                    </div>
-                    
-                    <div class="detail-item">
-                        <div class="detail-label">Duration</div>
-                        <div class="detail-value">[Add project timeline]</div>
-                    </div>
-                    
-                    <div class="detail-item">
-                        <div class="detail-label">Team Size</div>
-                        <div class="detail-value">[Add team information]</div>
-                    </div>
-                    
-                    <div class="detail-item">
-                        <div class="detail-label">Priority</div>
-                        <div class="detail-value">[High/Medium/Low]</div>
-                    </div>
-                </div>
+            <section class="my-10">
+                <h2 class="text-2xl font-bold text-slate-100 mb-4 pb-3 border-b border-slate-600">Outcome</h2>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    This initiative has helped optimize our SharePoint storage, reduce overhead, and bring governance into the content lifecycle. We will continue to monitor site usage and enforce best practices to maintain a healthy SharePoint environment.
+                </p>
+            </section>
 
-                <!-- Tools & Technologies -->
-                <div class="content-card">
-                    <h2><span class="icon">🛠️</span> Tools & Technologies</h2>
-                    <div class="tools-grid">
-                        <span class="tool-tag">PowerShell</span>
-                        <span class="tool-tag">SharePoint Admin</span>
-                        <span class="tool-tag">PnP PowerShell</span>
-                        <span class="tool-tag">[Add more tools]</span>
-                    </div>
-                </div>
+        </main>
 
-                <!-- Stakeholders -->
-                <div class="content-card">
-                    <h2><span class="icon">👥</span> Stakeholders</h2>
-                    <ul>
-                        <li>[Stakeholder 1 - Role]</li>
-                        <li>[Stakeholder 2 - Role]</li>
-                        <li>[Stakeholder 3 - Role]</li>
-                    </ul>
-                </div>
-
-                <!-- Next Steps -->
-                <div class="content-card">
-                    <h2><span class="icon">🚀</span> Next Steps</h2>
-                    <ul>
-                        <li>[Next step 1]</li>
-                        <li>[Next step 2]</li>
-                        <li>[Next step 3]</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Additional sections can be added here -->
-        <div class="placeholder-section">
-            <h3>Additional Content Sections</h3>
-            <p>You can add more sections here such as:</p>
-            <ul style="text-align: left; display: inline-block; margin-top: 20px;">
-                <li>Screenshots or diagrams</li>
-                <li>Before/after comparisons</li>
-                <li>Lessons learned</li>
-                <li>Future enhancements</li>
-                <li>Related projects</li>
-            </ul>
-        </div>
+        <!-- Footer -->
+        <footer class="text-center mt-16 text-slate-500">
+             © 2024 PremKumar. All rights reserved.
+        </footer>
     </div>
+
 </body>
 </html>
